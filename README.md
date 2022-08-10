@@ -52,14 +52,51 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi dataset lebih lanjut, adapun tahapan exploratory dataset sebagai berikut:
 
-- data.info(): untuk melihat informasi semua features yang ada di dataset. Pada tahap ini informasi yang diberikan adalah berupa informasi umum yang ada di dataset, seperti *range index* yaitu dari 0 - 999, jumlah baris yaitu 1000, jumlah kolom yaitu 5 (*User ID, Gender, Age, AnnualSalary, Purchased*), *datatypes* yaitu 4 kolom *dtype*-nya adalah int64, dan 1 kolom *dtype*-nya adalah *object*
-- data.describe(): untuk melihat informasi semua features secara statistik seperti mean tiap kolom, dll.
-- data.isnull().sum(): untuk melihat jumlah missing value yang ada pada tiap features
-- plot heatmap correlation: untuk melihat korelasi antar kolom pada dataset
-- data['Purchased'].value_counts(): untuk melihat berapa banyak jumlah customers yang membeli dan yang tidak membeli
-- max() dan min() pada age dan annual salaries: untuk melihat berapa usia tertinggi dan terendah, dan penghasilan tertinggi dan terendah.
-- histogram plot: untuk memvisualisasikan features
-- box plot: untuk memvisualisasikan features guna mencari outliers
+- **data.info()**
+
+![image](https://user-images.githubusercontent.com/91602612/183915900-f6da52d6-2bc6-4c2d-9c8e-62ea4b8b9b8e.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melihat informasi semua features yang ada di dataset. Pada tahap ini informasi yang diberikan adalah berupa informasi umum yang ada di dataset, seperti *range index* yaitu dari 0 - 999, jumlah baris yaitu 1000, jumlah kolom yaitu 5 (*User ID, Gender, Age, AnnualSalary, Purchased*), *datatypes* yaitu 4 kolom *dtype*-nya adalah int64, dan 1 kolom *dtype*-nya adalah *object* dan penggunaan memori dari datasset yaitu 39,2+ mb.
+
+- **data.describe()**
+
+![image](https://user-images.githubusercontent.com/91602612/183916121-b9a8f5cc-6b3a-4f44-a0a1-ccfb5b2204eb.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;untuk melihat informasi semua features secara statistik seperti *mean*, *std* tiap kolom, dll.
+
+- **data.isnull().sum()** 
+
+![image](https://user-images.githubusercontent.com/91602612/183917694-360d8d64-0a5d-4a29-b318-cff38d3962a3.png)
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melihat jumlah *missing value* yang ada pada tiap *features*. Dan bisa dilihat bahwa sudah tidak ada *missing value* pada setiap fitur.
+
+- **plot heatmap correlation**
+
+![image](https://user-images.githubusercontent.com/91602612/183862246-dbe96bc7-2d09-42e5-8dd0-83ff76153c3a.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar di atas merupakan plot menggunakan *heat map* untuk melihat korelasi dari tiap fitur yang ada di dataset. pada *matrix correlation* di atas bisa dilihat bahwa fitur *User ID* dan *Gender* memiliki korelasi yang sangat rendah terhadap tiap fitur yang ada di dataset dan memiliki korelasi yang rendah juga terhadap kolom *target / label (purchases)*, oleh karena itu kita perlu untuk menghilangkan kedua fitur tersebut agar akurasi yang akan dihasilkan nantinya menjadi lebih baik. 
+
+- **data['Purchased'].value_counts()** 
+ 
+ ![image](https://user-images.githubusercontent.com/91602612/183919366-ae921a08-c93c-4edb-9d8d-837b506319af.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melihat berapa banyak jumlah customers yang membeli dan yang tidak membeli, di sini *customer* yang membeli di representasikan dengan angka 1 yang berjumlah 402 (402 *customer* yang membeli), sedangkan untuk *customer* yang tidak membeli di representrasikan dengan angka 0 yang berjumlah 598 (598 *customer* dari 1000 yang tidak membeli)
+
+- **max() dan min() pada age dan annual salaries**:
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk melihat berapa usia tertinggi dan terendah (usia tertinggi adalah 63, dan usia terendah adalah 18), dan penghasilan tertinggi dan terendah ( penghasilan tertinggi adalah 152500 dan penghasilan terendah adalah 15000).
+
+- **histogram plot**
+
+![image](https://user-images.githubusercontent.com/91602612/183920963-4af2b7f0-6582-4b23-9f77-03c6c1bef434.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;untuk memvisualisasikan fitur yaitu *age* dan *annual salary*. Pada histogram di atas, dapat diketahui bahwa *customer* paling banyak ada di umur 38-40, dan juga *customer* dengan penghasilan terbanyak ada pada kisaran 7000-7500.  
+
+- **box plot**
+
+![image](https://user-images.githubusercontent.com/91602612/183921945-5cad4ea4-c163-4913-be3b-4f4b6d9384d7.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk memvisualisasikan features guna mencari outliers, akan tetapi setelah melihat gambar di atas diketahui bahwa tidak ada data yang *outlier*.
 
 ## Data Preparation
 
@@ -94,13 +131,7 @@ Pada tahap evaluasi, project ini menggunakan:
 
 [2]Stubeid, Saavi, and Arandjelovic, Ognjen, *"Machine Learning Based Prediction of Consumer Purchasing Decisions: The Evidence and Its Significance"* 2018.
 
-## Lampiran
 
-**Korelasi Fitur**
-
-![image](https://user-images.githubusercontent.com/91602612/183862246-dbe96bc7-2d09-42e5-8dd0-83ff76153c3a.png)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar di atas merupakan plot menggunakan *heat map* untuk melihat korelasi dari tiap fitur yang ada di dataset. pada *matrix correlation* di atas bisa dilihat bahwa fitur *User ID* dan *Gender* memiliki korelasi yang sangat rendah terhadap tiap fitur yang ada di dataset dan memiliki korelasi yang rendah juga terhadap kolom *target / label (purchases)*, oleh karena itu kita perlu untuk menghilangkan kedua fitur tersebut agar akurasi yang akan dihasilkan nantinya menjadi lebih baik. 
 
 **
 
