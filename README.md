@@ -52,7 +52,7 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi dataset lebih lanjut, adapun tahapan exploratory dataset sebagai berikut:
 
-- data.info(): untuk melihat informasi semua features yang ada di dataset.
+- data.info(): untuk melihat informasi semua features yang ada di dataset. Pada tahap ini informasi yang diberikan adalah berupa informasi umum yang ada di dataset, seperti *range index* yaitu dari 0 - 999, jumlah baris yaitu 1000, jumlah kolom yaitu 5 (*User ID, Gender, Age, AnnualSalary, Purchased*), *datatypes* yaitu 4 kolom *dtype*-nya adalah int64, dan 1 kolom *dtype*-nya adalah *object*
 - data.describe(): untuk melihat informasi semua features secara statistik seperti mean tiap kolom, dll.
 - data.isnull().sum(): untuk melihat jumlah missing value yang ada pada tiap features
 - plot heatmap correlation: untuk melihat korelasi antar kolom pada dataset
@@ -101,4 +101,6 @@ Pada tahap evaluasi, project ini menggunakan:
 ![image](https://user-images.githubusercontent.com/91602612/183862246-dbe96bc7-2d09-42e5-8dd0-83ff76153c3a.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar di atas merupakan plot menggunakan *heat map* untuk melihat korelasi dari tiap fitur yang ada di dataset. pada *matrix correlation* di atas bisa dilihat bahwa fitur *User ID* dan *Gender* memiliki korelasi yang sangat rendah terhadap tiap fitur yang ada di dataset dan memiliki korelasi yang rendah juga terhadap kolom *target / label (purchases)*, oleh karena itu kita perlu untuk menghilangkan kedua fitur tersebut agar akurasi yang akan dihasilkan nantinya menjadi lebih baik. 
+
+**
 
