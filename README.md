@@ -3,11 +3,14 @@
 
 ## Domain Proyek
 
-Pada zaman sekarang pembelian suatu barang sangatlah tinggi, E-commerce maupun penjualan barang-barang mewah seperti mobil, motor, perhiasan, dan lain-lain sangat mudah ditemui. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada zaman sekarang pembelian suatu barang sangatlah tinggi, setiap harinya banyak *customers* yang melakukan keputusan untuk membeli produk atau tidak[2]. *E-commerce* maupun penjualan barang-barang mewah seperti mobil, motor, perhiasan, dan lain-lain sangat mudah ditemui. 
 Dengan adanya teknologi, setiap manusia dapat melihat penjualan-penjualan tersebut. Tidak hanya itu dengan adanya teknologi juga dapat menguntungkan para penjual
-dikarenakan penjualan dapat dengan mudah dilakukan dengan gadget. Para pengusaha yang melakukan penjualan pun perlu mengetahui pembeli mereka apakah mereka akan membeli
+dikarenakan penjualan dapat dengan mudah dilakukan dengan *gadget*. Para pengusaha yang melakukan penjualan pun perlu mengetahui pembeli mereka apakah mereka akan membeli
 barang tersebut atau tidak. Dengan mengetahui pembeli-pembeli mereka, pengusaha akan dengan mudah untuk menentukkan target market mereka dan tentu saja ini akan menambah
-penghasilan dari suatu perusahaan. Oleh karena itu, dengan adanya machine learning dapat membantu pengusaha untuk mengenali lebih dalam target market mereka dan menambah penghasilan suatu perusahaan.
+penghasilan dari suatu perusahaan. Sebagai salah satu faktor yang mempengaruhi perilaku pembelian konsumen, gaya *decision-making* sangat penting untuk
+memahami perilaku belanja konsumen dan untuk mengembangkan strategi pemasaran yang sukses[1].
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oleh karena itu, dengan adanya *machine learning* dapat membantu pengusaha untuk mengenali lebih dalam target market mereka dan menambah penghasilan suatu perusahaan.
 Pada studi kasus ini, contoh pengenalan pembeli yang diambil adalah penjualan mobil untuk menentukkan keputusan penjualan terhadapa calon pembeli.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
@@ -35,7 +38,7 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
 ## Data Understanding
 
-Data yang digunakan meruapakn data penjualan mobil yang diambil dari kaggle Dataset memiliki jumlah baris yaitu 1000 baris dan 5 kolom. Isi dari dataset ini adalah detail mengenai 1000 customers yang memiliki kecenderungan untuk membeli mobil, berdasarkan dari penghasilan tahunan mereka.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data yang digunakan meruapakn data penjualan mobil yang diambil dari kaggle Dataset memiliki jumlah baris yaitu 1000 baris dan 5 kolom. Isi dari dataset ini adalah detail mengenai 1000 customers yang memiliki kecenderungan untuk membeli mobil, berdasarkan dari penghasilan tahunan mereka.
 
 [Cars= Purchased Decision Dataset](https://www.kaggle.com/datasets/gabrielsantello/cars-purchase-decision-dataset) 
 
@@ -46,7 +49,8 @@ Data yang digunakan meruapakn data penjualan mobil yang diambil dari kaggle Data
 - Purchased: merupakan target kolom sebagai penentu apakah customer akan membeli mobil (1) atau tidak (0) 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
-Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi dataset lebih lanjut, adapun tahapan exploratory dataset sebagai berikut:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi dataset lebih lanjut, adapun tahapan exploratory dataset sebagai berikut:
 
 - data.info(): untuk melihat informasi semua features yang ada di dataset.
 - data.describe(): untuk melihat informasi semua features secara statistik seperti mean tiap kolom, dll.
@@ -58,7 +62,8 @@ Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi d
 - box plot: untuk memvisualisasikan features guna mencari outliers
 
 ## Data Preparation
-Data preparation yang dilakukan pada project ini adalah dengan menggunakan one hot encoding untuk mengubah data categorical menjadi data numerical. Melakukan standarisasi data dan melakukan train test split data 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data preparation yang dilakukan pada project ini adalah dengan menggunakan one hot encoding untuk mengubah data categorical menjadi data numerical. Melakukan standarisasi data dan melakukan train test split data 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Pada data preparation yang pertama dilakukan adalah dengan membuat variabel x (independent) dan variable y (dependent)
@@ -66,7 +71,8 @@ Data preparation yang dilakukan pada project ini adalah dengan menggunakan one h
 - Melakukan train test split data agar dapat membedakan data train yang akan digunakan untuk training model dan data testing yang digunakan untuk menguji model dengan data baru.
 
 ## Modeling
-Untuk modeling, algoritma yang digunakan adalah Random Forest Classifier dikarenakan algoritma ini merupakan salah satu algoritma supervised learning dan termasuk dalam kasus klasifikasi. Parameter yang digunakan untuk model ini adalah n_estimators = 400 dan citerion = gini. parameter ini digunakan karena hasil parameter terbaik berdasarkan grid seacrh
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Untuk modeling, algoritma yang digunakan adalah Random Forest Classifier dikarenakan algoritma ini merupakan salah satu algoritma supervised learning dan termasuk dalam kasus klasifikasi. Parameter yang digunakan untuk model ini adalah n_estimators = 400 dan citerion = gini. parameter ini digunakan karena hasil parameter terbaik berdasarkan grid seacrh
 
 ## Evaluation
 Pada tahap evaluasi, project ini menggunakan:
@@ -78,3 +84,21 @@ Pada tahap evaluasi, project ini menggunakan:
       - (precision 0: 90%, precision 1: 84%)
       - (recall 0:  90%, recall: 82%)
       - (f1 score 0: 90%, f1 score 1: 83%)
+
+## Conclusion
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Decision-making* yang dilakukan untuk melakukan pembelian atau tidak terhadap suatu produk sering dialami oleh *customer* tentunya tidak semua *customer* dapat membeli atau memiliki keinginan untuk membeli produk tersebut. Hal itu dapat membuat perusahan kesulitan untuk mengerti calon pembeli yang pas untuk produknya. Akan tetapi dengan adanya *machine learning* hal itu dapat diatasi, dengan menggunakan algoritma *Random Forest Classsifier* untuk mengklasifikasi *customer* yang ingin membeli dan yang tidak membeli. Dengan itu perusahaan dapat mengerti tipikal pembeli yang sesuai dengan produk dan meningkatkan pemasaran dan mengerti *target* pasar yang ingin dicapai. Studi kasus ini mengangkat persoalan *desicion-making* pada penjualan mobil, dengan menggunakan algoritma *machine learning*, kita bisa tahu mana saja pembeli yang akan melakukan pembelian mobil, untuk akurasi dari modelnya sendiri ialah 87% dan *mean squared error* hanya 12%
+
+## References
+[1]Hamedani, Seyed E.A.H, *"A Review of Consumer Decision-Making Styles: Existing Styles and Proposed Additional Styles"* vol.7, 2017.
+
+[2]Stubeid, Saavi, and Arandjelovic, Ognjen, *"Machine Learning Based Prediction of Consumer Purchasing Decisions: The Evidence and Its Significance"* 2018.
+
+## Lampiran
+
+**Korelasi Fitur**
+
+![image](https://user-images.githubusercontent.com/91602612/183862246-dbe96bc7-2d09-42e5-8dd0-83ff76153c3a.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gambar di atas merupakan plot menggunakan *heat map* untuk melihat korelasi dari tiap fitur yang ada di dataset. pada *matrix correlation* di atas bisa dilihat bahwa fitur *User ID* dan *Gender* memiliki korelasi yang sangat rendah terhadap tiap fitur yang ada di dataset dan memiliki korelasi yang rendah juga terhadap kolom *target / label (purchases)*, oleh karena itu kita perlu untuk menghilangkan kedua fitur tersebut agar akurasi yang akan dihasilkan nantinya menjadi lebih baik. 
+
