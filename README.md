@@ -35,49 +35,46 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
 ## Data Understanding
 
-Data yang digunakan meruapakn data penjualan mobil yang diambil dari kaggle [Cars= Purchased Decision Dataset](https://www.kaggle.com/datasets/gabrielsantello/cars-purchase-decision-dataset)
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Data yang digunakan meruapakn data penjualan mobil yang diambil dari kaggle Dataset memiliki jumlah baris yaitu 1000 baris dan 5 kolom. Isi dari dataset ini adalah detail mengenai 1000 customers yang memiliki kecenderungan untuk membeli mobil, berdasarkan dari penghasilan tahunan mereka.
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+[Cars= Purchased Decision Dataset](https://www.kaggle.com/datasets/gabrielsantello/cars-purchase-decision-dataset) 
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+- Users ID : merupakan id customers untuk membedakan tiap customers.
+- Age : merupakan usia dari tiap customers.
+- AnnualSalaries: merupakan penghasilan tahunan dari tiap customers.
+- Purchased: merupakan target kolom sebagai penentu apakah customer akan membeli mobil (1) atau tidak (0) 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+Pada project ini dilakukan exploratory pada dataset untuk mengetahui informasi dataset lebih lanjut, adapun tahapan exploratory dataset sebagai berikut:
+
+- data.info(): untuk melihat informasi semua features yang ada di dataset.
+- data.describe(): untuk melihat informasi semua features secara statistik seperti mean tiap kolom, dll.
+- data.isnull().sum(): untuk melihat jumlah missing value yang ada pada tiap features
+- plot heatmap correlation: untuk melihat korelasi antar kolom pada dataset
+- data['Purchased'].value_counts(): untuk melihat berapa banyak jumlah customers yang membeli dan yang tidak membeli
+- max() dan min() pada age dan annual salaries: untuk melihat berapa usia tertinggi dan terendah, dan penghasilan tertinggi dan terendah.
+- histogram plot: untuk memvisualisasikan features
+- box plot: untuk memvisualisasikan features guna mencari outliers
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Data preparation yang dilakukan pada project ini adalah dengan menggunakan one hot encoding untuk mengubah data categorical menjadi data numerical. Melakukan standarisasi data dan melakukan train test split data 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+- Pada data preparation yang pertama dilakukan adalah dengan membuat variabel x (independent) dan variable y (dependent)
+- melakukan nomralisasi dengan StandardScaler() terhadap data X dikarenakan data X memiliki nilai yang tidak seimbang dalam skala oleh karena itu diperlukan normalisasi agar skala dari nilainya yaitu 0-1
+- Melakukan train test split data agar dapat membedakan data train yang akan digunakan untuk training model dan data testing yang digunakan untuk menguji model dengan data baru.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+Untuk modeling, algoritma yang digunakan adalah Random Forest Classifier dikarenakan algoritma ini merupakan salah satu algoritma supervised learning dan termasuk dalam kasus klasifikasi. Parameter yang digunakan untuk model ini adalah n_estimators = 400 dan citerion = gini. parameter ini digunakan karena hasil parameter terbaik berdasarkan grid seacrh
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
-
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
-
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
-
+Pada tahap evaluasi, project ini menggunakan:
+- mean squared error: 12%
+- accuracy score: 87%
+- confussion matrix: (tp: 114, tn: 12, fp: 13, fn: 61)
+- Classification report: 
+      
+      - (precision 0: 90%, precision 1: 84%)
+      - (recall 0:  90%, recall: 82%)
+      - (f1 score 0: 90%, f1 score 1: 83%)
